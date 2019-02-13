@@ -5,6 +5,7 @@ const
   app = express().use(bodyParser.json());
 
 app.post('/webhook', (req, res) => {  
+  console.log("in post webhook");
   let body = req.body;
    console.log(JSON.stringify(body));
     res.status(200).send('Event received');
