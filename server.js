@@ -7,7 +7,7 @@ const
 app.post('/webhook', (req, res,err) => {  
   
   console.log("in post webhook");
-  console.log("req"+JSON.stringify(req));
+  console.log(req);
   console.log("res"+JSON.stringify(res));
   console.log("err"+JSON.stringify(err));
   let body = req.body;
