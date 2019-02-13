@@ -4,8 +4,12 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
 
-app.post('/webhook', (req, res) => {  
+app.post('/webhook', (req, res,err) => {  
+  
   console.log("in post webhook");
+  console.log("req"+JSON.stringify(req));
+  console.log("res"+JSON.stringify(res));
+  console.log("err"+JSON.stringify(err));
   let body = req.body;
    console.log(JSON.stringify(body));
     res.status(200).send('Event received');
