@@ -25,7 +25,7 @@ app.get('/getMessageBody', (req, res) => {
   console.log("in get message response function");
   if(messageBody != undefined){
      console.log("in get message response function not null");
-     res.status(200).send(JSON.stringify(messageBody);
+     res.status(200).send(JSON.stringify(messageBody));
      messageBody = undefined;
   }else{
      console.log("in get message response function null");
