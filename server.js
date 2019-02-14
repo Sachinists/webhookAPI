@@ -7,10 +7,9 @@ const
 app.post('/webhook', (req, res,err) => {  
   
   console.log("in post webhook");
-  console.log(req);
   let body = req.body;
-   console.log(JSON.stringify(body));
-    res.status(200).send('Event received');
+  console.log(JSON.stringify(body));
+  res.status(200).send('Event received');
 });
 
 app.get('/webhook', (req, res) => {
