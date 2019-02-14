@@ -4,7 +4,7 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
 
-const messageBody = undefined;
+var messageBody;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/webhook', (req, res,err) => {  
   console.log("in post webhook");
