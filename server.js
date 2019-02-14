@@ -36,11 +36,11 @@ app.get('/getMessageBody', (req, res) => {
      console.log("in get message response function not null");
      console.log("in get message response function not null: "+JSON.stringify(messageBody));
      res.status(200).send(JSON.stringify(messageBody));
-     messageBody.messageResponse = undefined;
+     //messageBody.messageResponse = undefined;
      console.log("in get message response function not null: "+JSON.stringify(messageBody));
   }else{
      console.log("in get message response function null");
-     res.status(200).send(undefined);
+     res.status(200).send("Sorry their is no message.");
   }
 
 });
