@@ -4,14 +4,15 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
 
-const messageBody;
+var messageBody =  new MessageResponse();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/webhook', (req, res,err) => {  
   console.log("in post webhook");
   let body = req.body;
-  messageBody = new MessageResponse(req.body.Body);
+  console.log("MessageBOdy b4: "+messageBody.messageResponse);
+  messageBody.messageResponse = req.body.Body;
   console.log("MessageBOdy: "+JSON.stringify(messageBody));
-  console.log("MessageBOdy: "+messageBody.messageResponse);
+  console.log("MessageBOdy after: "+messageBody.messageResponse);
   console.log(JSON.stringify(body));
   res.status(200).send('Event received');
 });
@@ -23,7 +24,7 @@ app.get('/webhook', (req, res) => {
 
 app.get('/getMessageBody', (req, res) => {
   console.log("in get message response function");
-  if(messageBody != undefined){
+  if(messageBody.messageResponse != undefined){
      console.log("in get message response function not null");
      res.status(200).send(JSON.stringify(messageBody));
      messageBody = undefined;
@@ -36,8 +37,8 @@ app.get('/getMessageBody', (req, res) => {
 
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 class MessageResponse {
-  constructor(message) {
+  constructor() {
     console.log("in class constructor");
-    this.messageResponse = message;
+    this.messageResponse = undefined;
   }
 }
