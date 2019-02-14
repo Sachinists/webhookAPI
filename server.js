@@ -4,8 +4,8 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json());
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/webhook', (req, res,err) => {  
-  
   console.log("in post webhook");
   let body = req.body;
   console.log(JSON.stringify(body));
